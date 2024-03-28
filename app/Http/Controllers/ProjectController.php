@@ -14,7 +14,7 @@ class ProjectController extends Controller
     {
         $posts = Project::all();
 
-        return view('pages.posts.index', compact('posts'));
+        return view('pages.dashboard.posts.index', compact('posts'));
     }
 
     /**
@@ -22,7 +22,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('pages.posts.create');
+        return view('pages.dashboard.posts.create');
     }
 
     /**
@@ -30,8 +30,18 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        
+        $validatedData = $request->validate([
+            'title' => 'required|string',
+            'content' => 'required|string',
+        ]);
+
+        $slug = Project::generateSlug($validatedData['title']);
+
+        $validatedData['slug'] = $slug;
+
+        $newProject = Project::create($validatedData);
+
+        return redirect()->route('pages.dashboard.posts.index', $newProject);
     }
 
     /**
