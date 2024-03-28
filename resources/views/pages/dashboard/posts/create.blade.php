@@ -32,7 +32,6 @@
             </div>
         @enderror
         <button type="submit" class="btn btn-outline-info">Create a new project</button>
-
     </form>
 
 </main>
