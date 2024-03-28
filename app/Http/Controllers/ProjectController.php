@@ -12,7 +12,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Project::all();
+
+        return view('pages.posts.index', compact('posts'));
     }
 
     /**
