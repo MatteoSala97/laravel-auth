@@ -1,4 +1,7 @@
 @extends('layouts.app')
+
+@section('title', 'Laravel Companion | Home')
+
 @section('content')
 
 <div class="jumbotron p-5 mb-4 bg-light rounded-3">
@@ -11,8 +14,7 @@
     </div>
     <div class="d-flex gap-3 justify-content-center">
         <a href="{{ route('dashboard.posts.index') }}" class="btn btn-primary btn-lg" type="button">Projects list</a>
-        <a href="{{ route('dashboard.posts.create') }}" class="btn btn-success btn-lg" type="button">Project creation page</a>
-        <a href="#" class="btn btn-outline-secondary btn-lg" type="button">I'm just a button</a>
+        <a href="{{ route('dashboard.posts.create') }}" class="btn btn-success btn-lg" type="button">Create a new project</a>
     </div>
 </div>
 @endsection

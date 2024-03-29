@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Laravel Companion | Projects')
+
 @section('content')
 <main class="container">
     <h1 class="text-center py-3">Projects list</h1>
@@ -10,7 +12,8 @@
         @foreach($posts as $item)
             <div class="col-4 p-2">
                 <div class="card d-flex flex-column">
-                    <img class="card-img-top" src="{{ asset('images/WIP.jpg') }}" alt="{{ $item->title }}"/>
+                    <a href="{{ route('dashboard.posts.show', $item->id) }}">
+                        <img class="card-img-top" src="{{ asset('images/WIP.jpg') }}" alt="{{ $item->title }}"/></a>
                     <div class="card-body overflow-hidden">
                         <h4 class="card-title">Title: {{ $item->title }}</h4>
                         <p class="card-text">ID: {{ $item->id }}</p>

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Laravel Companion | Edit')
+
 @section('content')
 <main class="container">
     <h1 class="text-center py-3">Edit an existing project</h1>
@@ -32,7 +34,7 @@
                 {{ $message }}
             </div>
         @enderror
-        <button type="submit" class="btn btn-outline-success">Submit your changes</button>
+        <button type="submit" class="btn btn-outline-info">Submit your changes</button>
     </form>
 
 </main>

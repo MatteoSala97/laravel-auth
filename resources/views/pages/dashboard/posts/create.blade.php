@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Laravel Companion | Create')
+
 @section('content')
 <main class="container">
     <h1 class="text-center py-3">Create a new project</h1>
