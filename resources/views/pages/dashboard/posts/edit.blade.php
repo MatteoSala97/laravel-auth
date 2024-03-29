@@ -4,7 +4,7 @@
 <main class="container">
     <h1 class="text-center py-3">Edit an existing project</h1>
 
-    <form action="{{ route('dashboard.posts.update', $posts->id) }}" method="POST">
+    <form action="{{ route('dashboard.posts.update', $project->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -15,7 +15,7 @@
                 class="form-control @error('title') is-invalid @enderror"
                 name="title"
                 id="title"
-                value="{{ old('title') ?? $posts->title }}"
+                value="{{ old('title') ?? $project->title }}"
                 />
         </div>
        @error('title')
@@ -25,7 +25,7 @@
         @enderror
         <div class="mb-3">
             <label for="content" class="form-label">Content</label>
-            <textarea class="form-control @error('title') is-invalid @enderror"" name="content" id="content" rows="3">{{ old('content') ?? $posts->content }}</textarea>
+            <textarea class="form-control @error('title') is-invalid @enderror"" name="content" id="content" rows="3">{{ old('content') ?? $project->content }}</textarea>
         </div>
         @error('content')
             <div class="alert alert-danger">

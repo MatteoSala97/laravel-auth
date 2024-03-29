@@ -57,8 +57,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        $project = Project::findOrFail($id);
-        return view('pages.dashboard.posts.edit', compact('comic'));
+        // $project = Project::findOrFail($id);
+        return view('pages.dashboard.posts.edit', compact('project'));
     }
 
     /**
@@ -66,7 +66,18 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|string',
+            'content' => 'required|string',
+        ]);
+
+        $slug = Project::generateSlug($validatedData['title']);
+
+        $validatedData['slug'] = $slug;
+
+        $project->update($validatedData);
+
+        return redirect()->route('dashboard.posts.index')->with('success', 'Project successfully updated');
     }
 
     /**
