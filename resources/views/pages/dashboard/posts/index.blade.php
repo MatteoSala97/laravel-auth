@@ -25,12 +25,14 @@
                             role="button">
                             Edit
                         </a>
-                            <form method="POST" action="{{ route('dashboard.posts.destroy', $item->id) }}">
+                            <form action="{{ route('dashboard.posts.destroy', $item->id) }}" method="POST">
 
                             @csrf
                             @method('DELETE')
 
-                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                <button type="submit" class="btn btn-outline-danger">
+                                    Delete
+                                </button>
                             </form>
                         </div>
                     </div>

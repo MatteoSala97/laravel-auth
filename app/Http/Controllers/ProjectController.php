@@ -41,7 +41,7 @@ class ProjectController extends Controller
 
         $newProject = Project::create($validatedData);
 
-        return redirect()->route('pages.dashboard.posts.index', $newProject);
+        return redirect()->route('dashboard.posts.index');
     }
 
     /**
@@ -57,7 +57,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        $project = Project::findOrFail($id);
+        return view('pages.dashboard.posts.edit', compact('comic'));
     }
 
     /**
@@ -71,8 +72,12 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Project $project)
+    public function destroy($id)
     {
-        //
+        $project = Project::findOrFail($id);
+
+        $project->delete();
+
+        return redirect()->route('dashboard.posts.index')->with('success', 'Project successfully deleted');
     }
 }
