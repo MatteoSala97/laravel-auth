@@ -5,6 +5,9 @@
 @section('content')
 
 <main class="container">
+    <h1 class="pt-4">
+        Benvenuto in questo progetto
+    </h1>
     <div class="card-body border p-4 mt-3 d-flex">
         <img class="card-img-top" style="max-width: 400px" src="{{ asset('images/WIP.jpg') }}" alt="{{ $project->title }}"/>
         <div class="d-flex flex-column justify-content-center" style="overflow: hidden; width: 600px;">
@@ -15,7 +18,7 @@
         </div>
     </div>
     <div class="mt-5 d-flex gap-3">
-        <a href="{{ route('dashboard.posts.index') }}" class="btn btn-primary" type="button">Back to where you came from</a>
+        <a href="{{ route('dashboard.posts.index') }}" class="btn btn-outline-secondary" type="button">Back to where you came from</a>
 
         <a name="edit" id="edit" class="btn btn-outline-success" href="{{ route('dashboard.posts.edit', $project->id) }}" role="button">
         Edit this project</a>
